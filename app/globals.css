@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5F0EB;
+  color: #1A1410;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nav link hover underline animation */
+.nav-link {
+  position: relative;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  opacity: 0.75;
+}
+
+/* Dark nav variant (for non-hero pages) */
+.nav-link-dark {
+  color: #1A1410;
+}
+
+.nav-link-dark::after {
+  background-color: #1A1410;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.dropdown-trigger:hover .dropdown-menu,
+.dropdown-trigger:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
